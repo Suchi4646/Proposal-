@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -75,7 +75,7 @@
       background-color: #45a049;
     }
 
-    .panda-gif {
+    .panda-img {
       width: 250px;
       margin-top: 20px;
     }
@@ -105,7 +105,7 @@
   <!-- First Question Section -->
   <div id="first-question" style="display: none;">
     <p class="question">Do you like spending time with me? 🤔</p>
-    <img class="panda-gif" id="first-question-gif" src="https://media.giphy.com/media/13CoXDiaCcCoyk/giphy.gif" alt="Panda Thinking">
+    <img class="panda-img" id="first-question-img" src="https://via.placeholder.com/250" alt="Panda Thinking">
     <button class="btn yes-btn" onclick="answerFirstQuestion(true)">Yes, absolutely!</button>
     <button class="btn no-btn" onclick="answerFirstQuestion(false)">Not really 😅</button>
   </div>
@@ -113,7 +113,7 @@
   <!-- Second Question Section -->
   <div id="second-question" style="display: none;">
     <p class="question">Do you think I’m cute? 😏</p>
-    <img class="panda-gif" id="second-question-gif" src="https://media.giphy.com/media/9J7vK34t2uS6g/giphy.gif" alt="Panda Cute">
+    <img class="panda-img" id="second-question-img" src="https://via.placeholder.com/250" alt="Panda Cute">
     <button class="btn yes-btn" onclick="answerSecondQuestion(true)">Yes, you are! 😍</button>
     <button class="btn no-btn" onclick="answerSecondQuestion(false)">Uhh, not sure... 😬</button>
   </div>
@@ -121,7 +121,7 @@
   <!-- Third Question Section -->
   <div id="third-question" style="display: none;">
     <p class="question">Would you call me your special one? 🥰</p>
-    <img class="panda-gif" id="third-question-gif" src="https://media.giphy.com/media/2X15qG8z0wR2g/giphy.gif" alt="Panda Special">
+    <img class="panda-img" id="third-question-img" src="https://via.placeholder.com/250" alt="Panda Special">
     <button class="btn yes-btn" onclick="answerThirdQuestion(true)">Yes, you're special! 💖</button>
     <button class="btn no-btn" onclick="answerThirdQuestion(false)">Maybe not yet... 😕</button>
   </div>
@@ -130,7 +130,7 @@
   <div id="proposal" style="display: none;">
     <p class="question">Okay, now the big question... 💖</p>
     <p class="question" id="final-question">Will you be my baaayfrend? 💖</p>
-    <img class="panda-gif" id="final-question-gif" src="https://media.giphy.com/media/3o6nV0VhHHiA0xB4yI/giphy.gif" alt="Panda Asking">
+    <img class="panda-img" id="final-question-img" src="https://via.placeholder.com/250" alt="Panda Asking">
     <button class="btn yes-btn" onclick="respondYes()">Yes, of course! 😍</button>
     <button class="btn no-btn" onclick="respondNo()">No 😢</button>
   </div>
@@ -140,7 +140,7 @@
   <div id="whirlpool-popup" class="popup">
     <div class="popup-content">
       <p>I know your fridge is Whirlpool, Please say YES. 🙏</p>
-      <img class="panda-gif" src="https://media.giphy.com/media/7T6dG9jKxzZi4/giphy.gif" alt="Whirlpool Panda">
+      <img class="panda-img" src="https://via.placeholder.com/250" alt="Whirlpool Panda">
       <button class="close-btn" onclick="closePopup()">Okay, I'll say YES!</button>
     </div>
   </div>
@@ -150,7 +150,7 @@
     <div class="popup-content">
       <p>Wait, what? 😱</p>
       <p class="tantrum">You don't like me? 😭</p>
-      <img class="panda-gif" src="https://media.giphy.com/media/9J7vK34t2uS6g/giphy.gif" alt="Sad Panda">
+      <img class="panda-img" src="https://via.placeholder.com/250" alt="Sad Panda">
       <p>Are you sure? Please say YES! 🙏</p>
       <button class="close-btn" onclick="closePopup()">Try Again</button>
     </div>
@@ -161,7 +161,7 @@
     <div class="popup-content">
       <p>Wait, hold on! 😳</p>
       <p class="tantrum">You're leaving me hanging? 😫</p>
-      <img class="panda-gif" src="https://media.giphy.com/media/2pfQ3vfivQmNA/giphy.gif" alt="Panda Begging">
+      <img class="panda-img" src="https://via.placeholder.com/250" alt="Panda Begging">
       <p>Come on, you know you like me! 😍</p>
       <button class="close-btn" onclick="closePopup()">Okay, fine... Try Again</button>
     </div>
@@ -172,7 +172,7 @@
     <div class="popup-content">
       <p>YAY! 💖💖 You said YES! 😍</p>
       <p>I'm the happiest person in the world! 💫</p>
-      <img class="panda-gif" src="https://media.giphy.com/media/d1J2rbKjYpYY7leZ7f/giphy.gif" alt="Happy Panda">
+      <img class="panda-img" src="https://via.placeholder.com/250" alt="Happy Panda">
       <button class="close-btn" onclick="closePopup()">Close</button>
     </div>
   </div>
@@ -191,13 +191,55 @@
         document.getElementById('second-question').style.display = 'block';
       } else {
         document.getElementById('whirlpool-popup').style.display = 'block';
-        document.getElementById('first-question-gif').src = "https://media.giphy.com/media/3o6nV0VhHHiA0xB4yI/giphy.gif"; // Sad Panda for rejection
       }
     }
 
-    // Whirlpool popup close
-    function closeWhirlpoolPopup() {
-      document.getElementById('whirlpool-popup').style.display = 'none';
+    // Handling second question
+    function answerSecondQuestion(cute) {
+      if (cute) {
+        document.getElementById('second-question').style.display = 'none';
+        document.getElementById('third-question').style.display = 'block';
+      } else {
+        alert("Wait, are you serious? 😂 I'm cute, I swear!");
+      }
     }
 
-    // Handling second question
+    // Handling third question
+    function answerThirdQuestion(special) {
+      if (special) {
+        document.getElementById('third-question').style.display = 'none';
+        document.getElementById('proposal').style.display = 'block';
+      } else {
+        alert("Not yet? Hmm... I’ll change your mind 😉");
+      }
+    }
+
+    // Handle the 'Yes' response
+    function respondYes() {
+      document.getElementById('final-popup').style.display = 'block';
+    }
+
+    // Handle the 'No' response with tantrums and cute panda images
+    let noAttempts = 0;
+    function respondNo() {
+      noAttempts++;
+      
+      if (noAttempts === 1) {
+        document.getElementById('no-popup').style.display = 'block';
+      } else if (noAttempts === 2) {
+        document.getElementById('no-popup2').style.display = 'block';
+      } else {
+        alert("Okay, okay... I'll take the hint. 😅 But you know you like me, right?");
+      }
+    }
+
+    // Close popups
+    function closePopup() {
+      document.getElementById('no-popup').style.display = 'none';
+      document.getElementById('no-popup2').style.display = 'none';
+      document.getElementById('final-popup').style.display = 'none';
+      document.getElementById('whirlpool-popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
