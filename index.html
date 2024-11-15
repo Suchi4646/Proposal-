@@ -75,11 +75,6 @@
       background-color: #45a049;
     }
 
-    .panda-img {
-      width: 250px;
-      margin-top: 20px;
-    }
-
     .tantrum {
       color: #f44336;
       font-size: 1.5em;
@@ -105,7 +100,7 @@
   <!-- First Question Section -->
   <div id="first-question" style="display: none;">
     <p class="question">Do you like spending time with me? 🤔</p>
-    <img class="panda-img" id="first-question-img" src="https://via.placeholder.com/250" alt="Panda Thinking">
+    <img class="panda-img" id="first-question-img" src="https://media.giphy.com/media/13CoXDiaCcCoyk/giphy.gif" alt="Panda Thinking">
     <button class="btn yes-btn" id="yes1">Yes, absolutely!</button>
     <button class="btn no-btn" id="no1">Not really 😅</button>
   </div>
@@ -113,7 +108,6 @@
   <!-- Second Question Section -->
   <div id="second-question" style="display: none;">
     <p class="question">Do you think I’m cute? 😏</p>
-    <img class="panda-img" id="second-question-img" src="https://via.placeholder.com/250" alt="Panda Cute">
     <button class="btn yes-btn" id="yes2">Yes, you are! 😍</button>
     <button class="btn no-btn" id="no2">Uhh, not sure... 😬</button>
   </div>
@@ -121,7 +115,6 @@
   <!-- Third Question Section -->
   <div id="third-question" style="display: none;">
     <p class="question">Would you call me your special one? 🥰</p>
-    <img class="panda-img" id="third-question-img" src="https://via.placeholder.com/250" alt="Panda Special">
     <button class="btn yes-btn" id="yes3">Yes, you're special! 💖</button>
     <button class="btn no-btn" id="no3">Maybe not yet... 😕</button>
   </div>
@@ -130,7 +123,7 @@
   <div id="proposal" style="display: none;">
     <p class="question">Okay, now the big question... 💖</p>
     <p class="question" id="final-question">Will you be my baaayfrend? 💖</p>
-    <img class="panda-img" id="final-question-img" src="https://via.placeholder.com/250" alt="Panda Asking">
+    <img class="panda-img" id="final-question-img" src="https://i.pinimg.com/originals/f3/7b/b9/f37bb94526b63d3e0eb3937f9f1f7fa1.gif" alt="Panda Asking">
     <button class="btn yes-btn" id="yes4">Yes, of course! 😍</button>
     <button class="btn no-btn" id="no4">No 😢</button>
   </div>
@@ -139,7 +132,6 @@
   <div id="whirlpool-popup" class="popup">
     <div class="popup-content">
       <p>I know your fridge is Whirlpool, Please say YES. 🙏</p>
-      <img class="panda-img" src="https://via.placeholder.com/250" alt="Whirlpool Panda">
       <button class="close-btn" onclick="closePopup()">Okay, I'll say YES!</button>
     </div>
   </div>
@@ -148,7 +140,6 @@
     <div class="popup-content">
       <p>Wait, what? 😱</p>
       <p class="tantrum">You don't like me? 😭</p>
-      <img class="panda-img" src="https://via.placeholder.com/250" alt="Sad Panda">
       <p>Are you sure? Please say YES! 🙏</p>
       <button class="close-btn" onclick="closePopup()">Try Again</button>
     </div>
@@ -158,7 +149,6 @@
     <div class="popup-content">
       <p>Wait, hold on! 😳</p>
       <p class="tantrum">You're leaving me hanging? 😫</p>
-      <img class="panda-img" src="https://via.placeholder.com/250" alt="Panda Begging">
       <p>Come on, you know you like me! 😍</p>
       <button class="close-btn" onclick="closePopup()">Okay, fine... Try Again</button>
     </div>
@@ -168,59 +158,55 @@
     <div class="popup-content">
       <p>YAY! 💖💖 You said YES! 😍</p>
       <p>I'm the happiest person in the world! 💫</p>
-      <img class="panda-img" src="https://via.placeholder.com/250" alt="Happy Panda">
       <button class="close-btn" onclick="closePopup()">Close</button>
     </div>
   </div>
 
   <script>
-    // Event listener setup
-    document.getElementById('start-btn').addEventListener('click', startQuestions);
-    
-    // Start the questions after greeting
+    // Function to display the first question
     function startQuestions() {
       document.getElementById('greeting').style.display = 'none';
       document.getElementById('first-question').style.display = 'block';
     }
 
-    // Handling first question
-    document.getElementById('yes1').addEventListener('click', function() {
-      document.getElementById('first-question').style.display = 'none';
-      document.getElementById('second-question').style.display = 'block';
-    });
+    // Function to go to the second question
+    function answerFirstQuestion(like) {
+      if (like) {
+        document.getElementById('first-question').style.display = 'none';
+        document.getElementById('second-question').style.display = 'block';
+      } else {
+        document.getElementById('whirlpool-popup').style.display = 'block';
+      }
+    }
 
-    document.getElementById('no1').addEventListener('click', function() {
-      document.getElementById('whirlpool-popup').style.display = 'block';
-    });
+    // Function to go to the third question
+    function answerSecondQuestion(cute) {
+      if (cute) {
+        document.getElementById('second-question').style.display = 'none';
+        document.getElementById('third-question').style.display = 'block';
+      } else {
+        alert("Wait, are you serious? 😂 I'm cute, I swear!");
+      }
+    }
 
-    // Handling second question
-    document.getElementById('yes2').addEventListener('click', function() {
-      document.getElementById('second-question').style.display = 'none';
-      document.getElementById('third-question').style.display = 'block';
-    });
+    // Function to go to the proposal
+    function answerThirdQuestion(special) {
+      if (special) {
+        document.getElementById('third-question').style.display = 'none';
+        document.getElementById('proposal').style.display = 'block';
+      } else {
+        alert("Not yet? Hmm... I’ll change your mind 😉");
+      }
+    }
 
-    document.getElementById('no2').addEventListener('click', function() {
-      alert("Wait, are you serious? 😂 I'm cute, I swear!");
-    });
-
-    // Handling third question
-    document.getElementById('yes3').addEventListener('click', function() {
-      document.getElementById('third-question').style.display = 'none';
-      document.getElementById('proposal').style.display = 'block';
-    });
-
-    document.getElementById('no3').addEventListener('click', function() {
-      alert("Not yet? Hmm... I’ll change your mind 😉");
-    });
-
-    // Handle the 'Yes' response
-    document.getElementById('yes4').addEventListener('click', function() {
+    // Handle Yes for proposal
+    function respondYes() {
       document.getElementById('final-popup').style.display = 'block';
-    });
+    }
 
-    // Handle the 'No' response with tantrums
+    // Handle No for proposal
     let noAttempts = 0;
-    document.getElementById('no4').addEventListener('click', function() {
+    function respondNo() {
       noAttempts++;
       if (noAttempts === 1) {
         document.getElementById('no-popup').style.display = 'block';
@@ -229,7 +215,7 @@
       } else {
         alert("Okay, okay... I'll take the hint. 😅 But you know you like me, right?");
       }
-    });
+    }
 
     // Close popups
     function closePopup() {
@@ -238,6 +224,30 @@
       document.getElementById('final-popup').style.display = 'none';
       document.getElementById('whirlpool-popup').style.display = 'none';
     }
+
+    // Initialize buttons and add event listeners
+    document.getElementById('start-btn').addEventListener('click', startQuestions);
+    document.getElementById('yes1').addEventListener('click', function() {
+      answerFirstQuestion(true);
+    });
+    document.getElementById('no1').addEventListener('click', function() {
+      answerFirstQuestion(false);
+    });
+    document.getElementById('yes2').addEventListener('click', function() {
+      answerSecondQuestion(true);
+    });
+    document.getElementById('no2').addEventListener('click', function() {
+      answerSecondQuestion(false);
+    });
+    document.getElementById('yes3').addEventListener('click', function() {
+      answerThirdQuestion(true);
+    });
+    document.getElementById('no3').addEventListener('click', function() {
+      answerThirdQuestion(false);
+    });
+    document.getElementById('yes4').addEventListener('click', respondYes);
+    document.getElementById('no4').addEventListener('click', respondNo);
   </script>
+
 </body>
 </html>
