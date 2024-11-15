@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -201,55 +201,3 @@
     }
 
     // Handling second question
-    function answerSecondQuestion(cute) {
-      if (cute) {
-        document.getElementById('second-question').style.display = 'none';
-        document.getElementById('third-question').style.display = 'block';
-      } else {
-        alert("Wait, are you serious? 😂 I'm cute, I swear!");
-        document.getElementById('second-question-gif').src = "https://media.giphy.com/media/3o6nV0VhHHiA0xB4yI/giphy.gif"; // Panda confused
-      }
-    }
-
-    // Handling third question
-    function answerThirdQuestion(special) {
-      if (special) {
-        document.getElementById('third-question').style.display = 'none';
-        document.getElementById('proposal').style.display = 'block';
-      } else {
-        alert("Not yet? Hmm... I’ll change your mind 😉");
-        document.getElementById('third-question-gif').src = "https://media.giphy.com/media/13CoXDiaCcCoyk/giphy.gif"; // Panda unsure
-      }
-    }
-
-    // Handle the 'Yes' response
-    function respondYes() {
-      document.getElementById('final-popup').style.display = 'block';
-    }
-
-    // Handle the 'No' response with tantrums and cute panda GIFs
-    let noAttempts = 0;
-    function respondNo() {
-      noAttempts++;
-      
-      if (noAttempts === 1) {
-        document.getElementById('no-popup').style.display = 'block';
-        document.getElementById('final-question-gif').src = "https://media.giphy.com/media/9J7vK34t2uS6g/giphy.gif"; // Sad Panda GIF
-      } else if (noAttempts === 2) {
-        document.getElementById('no-popup2').style.display = 'block';
-        document.getElementById('final-question-gif').src = "https://media.giphy.com/media/2pfQ3vfivQmNA/giphy.gif"; // Panda begging
-      } else {
-        alert("Okay, okay... I'll take the hint. 😅 But you know you like me, right?");
-      }
-    }
-
-    // Close popups
-    function closePopup() {
-      document.getElementById('no-popup').style.display = 'none';
-      document.getElementById('no-popup2').style.display = 'none';
-      document.getElementById('final-popup').style.display = 'none';
-      document.getElementById('whirlpool-popup').style.display = 'none';
-    }
-  </script>
-</body>
-</html>
